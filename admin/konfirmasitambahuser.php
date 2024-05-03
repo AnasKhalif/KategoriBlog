@@ -1,0 +1,20 @@
+<?php
+
+include('../koneksi/koneksi.php');
+$nama = $_POST['nama'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$jurusan = $_POST['jurusan'];
+
+if (empty($nama)) {
+    header("Location:tambahuser.php?notif=tambahkosong&jenis=nama");
+} else if (empty($email)) {
+    header("Location:tambahuser.php?notif=tambahkosong&jenis=email");
+} else if (empty($username)) {
+    header("Location:tambahuser.php?notif=tambahkosong&jenis=email");
+} else {
+    $sql = "insert into `user` (`nama, email, username, password, level`) values ('$nama, $email, $username, $password, $jurusan')";
+    mysqli_query($koneksi, $sql);
+    header("Location:user.php?notif=tambahberhasil");
+}
