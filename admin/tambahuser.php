@@ -44,18 +44,18 @@
           <!-- form start -->
           </br>
 
-          <div class="col-sm-10">
+          <!-- <div class="col-sm-10">
             <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div>
-          </div>
+          </div> -->
 
-          <div class="col-sm-10">
+          <!-- <div class="col-sm-10">
             <?php if (!empty($_GET['notif'])) { ?>
               <?php if ($_GET['notif'] == "tambahkosong") { ?>
                 <div class="alert alert-danger" role="alert">
                   Maaf data nama blog wajib di isi</div>
               <?php } ?>
             <?php } ?>
-          </div>
+          </div> -->
 
           <form class="form-horizontal" method="post" action="konfirmasitambahuser.php" enctype="multipart/form-data">
             <div class="card-body">

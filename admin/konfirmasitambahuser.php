@@ -9,11 +9,17 @@ $jurusan = $_POST['jurusan'];
 
 if (empty($nama)) {
     header("Location:tambahuser.php?notif=tambahkosong&jenis=nama");
-} else if (empty($email)) {
-    header("Location:tambahuser.php?notif=tambahkosong&jenis=email");
-} else if (empty($username)) {
-    header("Location:tambahuser.php?notif=tambahkosong&jenis=email");
-} else {
+}
+// else if (empty($email)) {
+//     header("Location:tambahuser.php?notif=tambahkosong&jenis=email");
+// } else if (empty($username)) {
+//     header("Location:tambahuser.php?notif=tambahkosong&jenis=username");
+// } else if (empty($password)) {
+//     header("Location:tambahuser.php?notif=tambahkosong&jenis=password");
+// } else if (empty($jurusan)) {
+//     header("Location:tambahuser.php?notif=tambahkosong&jenis=jurusan");
+// } 
+else {
     $sql = "insert into `user` (`nama, email, username, password, level`) values ('$nama, $email, $username, $password, $jurusan')";
     mysqli_query($koneksi, $sql);
     header("Location:user.php?notif=tambahberhasil");
