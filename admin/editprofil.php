@@ -59,14 +59,15 @@ if (isset($_SESSION['id_user'])) {
           <!-- form start -->
           </br>
           <div class="col-sm-10">
-            <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div>
-          </div>
-          <?php if ((!empty($_GET['notif'])) && (!empty($_GET['jenis']))) { ?>
-            <?php if ($_GET['notif'] == "editkosong") { ?>
-              <div class="alert alert-danger" role="alert">Maaf data
-                <?php echo $_GET['jenis']; ?> wajib di isi</div>
+            <!-- <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div> -->
+            <?php if ((!empty($_GET['notif'])) && (!empty($_GET['jenis']))) { ?>
+              <?php if ($_GET['notif'] == "editkosong") { ?>
+                <div class="alert alert-danger" role="alert">Maaf data
+                  <?php echo $_GET['jenis']; ?> wajib di isi</div>
+              <?php } ?>
             <?php } ?>
-          <?php } ?>
+          </div>
+
           <form class="form-horizontal" method="post" action="konfirmasieditprofil.php" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group row">

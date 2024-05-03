@@ -1,3 +1,9 @@
+<?php
+
+include('../koneksi/koneksi.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,18 +50,15 @@
           <!-- form start -->
           </br>
 
-          <!-- <div class="col-sm-10">
-            <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div>
-          </div> -->
-
-          <!-- <div class="col-sm-10">
-            <?php if (!empty($_GET['notif'])) { ?>
-              <?php if ($_GET['notif'] == "tambahkosong") { ?>
-                <div class="alert alert-danger" role="alert">
-                  Maaf data nama blog wajib di isi</div>
-              <?php } ?>
+          <div class="col-sm-10">
+            <!-- <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div> -->
+            <!-- <?php if ((!empty($_GET['notif'])) && (!empty($_GET['jenis']))) { ?> -->
+            <?php if ($_GET['notif'] == "tambahkosong") { ?>
+              <div class="alert alert-danger" role="alert">Maaf data
+                <?php echo $_GET['jenis']; ?> wajib di isi</div>
             <?php } ?>
-          </div> -->
+          <?php } ?>
+          </div>
 
           <form class="form-horizontal" method="post" action="konfirmasitambahuser.php" enctype="multipart/form-data">
             <div class="card-body">
@@ -98,7 +101,7 @@
               <div class="form-group row">
                 <label for="level" class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="jurusan" name="jurusan">
+                  <select class="form-control" id="jurusan" name="level">
                     <option value="superadmin">superadmin</option>
                     <option value="admin">admin</option>
                   </select>
