@@ -20,23 +20,15 @@ if (empty($nama)) {
     header("Location:tambahuser.php?notif=tambahkosong&jenis=level");
 } else {
 
-
+    $allowed_extension = array('png', 'jpg');
     $lokasi_file = $_FILES['foto']['tmp_name'];
     $nama_file = $_FILES['foto']['name'];
     $direktori = 'foto/' . $nama_file;
     if (move_uploaded_file($lokasi_file, $direktori)) {
-        if (!empty($foto)) {
-            unlink("foto/$foto");
-        }
-
         $sql = "insert into `user` (`nama`,`email`, `username`, `password`, `level`, `foto`)
-        values ('$nama', '$email', '$username', '$password', '$level', '$foto')";
+	    values ('$nama', '$email', '$username', '$password', '$level', '$nama_file')";
 
         //echo $sql;
-        mysqli_query($koneksi, $sql);
-    } else {
-        $sql = "insert into `user` (`nama`,`email`, `username`, `password`, `level`)
-	    values ('$nama', '$email', '$username', '$password', '$level')";
         mysqli_query($koneksi, $sql);
     }
     header("Location:user.php?notif=tambahberhasil");
