@@ -3,12 +3,13 @@ include('../koneksi/koneksi.php');
 session_start();
 if (isset($_SESSION['id_user'])) {
   $id_user = $_SESSION['id_user'];
-  $sql_d = "select `nama`, `email` from `user` 
+  $sql_d = "select `nama`, `email`, `foto` from `user` 
   	where `id_user` = '$id_user'";
   $query_d = mysqli_query($koneksi, $sql_d);
   while ($data_d = mysqli_fetch_row($query_d)) {
     $nama = $data_d[0];
     $email = $data_d[1];
+    $foto = $data_d[2];
   }
 }
 ?>
@@ -83,7 +84,7 @@ if (isset($_SESSION['id_user'])) {
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" name="foto" id="customFile">
                     <label class="custom-file-label" for="customFile">
-                      Choose file</label>
+                      <?php echo $foto; ?></label>
                   </div>
                 </div>
               </div>

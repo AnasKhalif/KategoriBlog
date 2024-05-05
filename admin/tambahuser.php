@@ -52,12 +52,12 @@ include('../koneksi/koneksi.php');
 
           <div class="col-sm-10">
             <!-- <div class="alert alert-danger" role="alert">Maaf data nama wajib di isi</div> -->
-            <!-- <?php if ((!empty($_GET['notif'])) && (!empty($_GET['jenis']))) { ?> -->
-            <?php if ($_GET['notif'] == "tambahkosong") { ?>
-              <div class="alert alert-danger" role="alert">Maaf data
-                <?php echo $_GET['jenis']; ?> wajib di isi</div>
+            <?php if (($_GET['notif']) && ($_GET['jenis'])) { ?>
+              <?php if ($_GET['notif'] == "tambahkosong") { ?>
+                <div class="alert alert-danger" role="alert">Maaf data
+                  <?php echo $_GET['jenis']; ?> wajib di isi</div>
+              <?php } ?>
             <?php } ?>
-          <?php } ?>
           </div>
 
           <form class="form-horizontal" method="post" action="konfirmasitambahuser.php" enctype="multipart/form-data">
@@ -65,7 +65,7 @@ include('../koneksi/koneksi.php');
               <div class="form-group row">
                 <label for="foto" class="col-sm-12 col-form-label"><span class="text-info"><i class="fas fa-user-circle"></i> <u>Data User</u></span></label>
               </div>
-              <!-- <div class="form-group row">
+              <div class="form-group row">
                 <label for="foto" class="col-sm-3 col-form-label">Foto </label>
                 <div class="col-sm-7">
                   <div class="custom-file">
@@ -73,7 +73,7 @@ include('../koneksi/koneksi.php');
                     <label class="custom-file-label" for="customFile">Choose file</label>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <div class="form-group row">
                 <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                 <div class="col-sm-7">
@@ -101,7 +101,7 @@ include('../koneksi/koneksi.php');
               <div class="form-group row">
                 <label for="level" class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-7">
-                  <select class="form-control" id="jurusan" name="level">
+                  <select class="form-control" id="level" name="level">
                     <option value="superadmin">superadmin</option>
                     <option value="admin">admin</option>
                   </select>

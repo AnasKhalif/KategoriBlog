@@ -63,6 +63,22 @@ include('../koneksi/koneksi.php');
               <div class="alert alert-success" role="alert">Data Berhasil Ditambahkan</div>
               <div class="alert alert-success" role="alert">Data Berhasil Diubah</div>
             </div> -->
+
+            <div class="col-sm-12">
+              <?php if (!empty($_GET['notif'])) { ?>
+                <?php if ($_GET['notif'] == "tambahberhasil") { ?>
+                  <div class="alert alert-success" role="alert">
+                    Data Berhasil Ditambahkan</div>
+                <?php } else if ($_GET['notif'] == "editberhasil") { ?>
+                  <div class="alert alert-success" role="alert">
+                    Data Berhasil Diubah</div>
+                <?php } else if ($_GET['notif'] == "hapusberhasil") { ?>
+                  <div class="alert alert-success" role="alert">
+                    Data Berhasil Dihapus</div>
+                <?php } ?>
+              <?php } ?>
+            </div>
+
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -96,7 +112,7 @@ include('../koneksi/koneksi.php');
                     <td><?php echo $email; ?></td>
                     <td><?php echo $level; ?></td>
                     <td align="center">
-                      <a href="edituser.php" class="btn btn-xs btn-info" title="Edit"><i class="fas fa-edit"></i></a>
+                      <a href="edituser.php?data=<?php echo $id_user; ?>" class="btn btn-xs btn-info" title="Edit"><i class="fas fa-edit"></i></a>
                       <a href="detailuser.php" class="btn btn-xs btn-info" title="Detail"><i class="fas fa-eye"></i></a>
                       <a href="#" class="btn btn-xs btn-warning"><i class="fas fa-trash" title="Hapus"></i></a>
                     </td>
