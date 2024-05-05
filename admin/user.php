@@ -1,6 +1,15 @@
 <?php
 
 include('../koneksi/koneksi.php');
+if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
+  if ($_GET['aksi'] == 'hapus') {
+    $id_user = $_GET['data'];
+    //hapus kategori blog
+    $sql_dh = "delete from `user` 
+		where `id_user` = '$id_user'";
+    mysqli_query($koneksi, $sql_dh);
+  }
+}
 
 ?>
 
@@ -113,8 +122,10 @@ include('../koneksi/koneksi.php');
                     <td><?php echo $level; ?></td>
                     <td align="center">
                       <a href="edituser.php?data=<?php echo $id_user; ?>" class="btn btn-xs btn-info" title="Edit"><i class="fas fa-edit"></i></a>
-                      <a href="detailuser.php" class="btn btn-xs btn-info" title="Detail"><i class="fas fa-eye"></i></a>
-                      <a href="#" class="btn btn-xs btn-warning"><i class="fas fa-trash" title="Hapus"></i></a>
+                      <a href="detailuser.php?data=<?php echo $id_user; ?>" class="btn btn-xs btn-info" title="Detail"><i class="fas fa-eye"></i></a>
+                      <a href="javascript:if(confirm('Anda yakin ingin menghapus data 
+                    <?php echo $nama; ?>?'))window.location.href =  
+                    'user.php?aksi=hapus&data=<?php echo $id_user; ?>&notif=hapusberhasil'" class="btn btn-xs btn-warning"><i class="fas fa-trash" title="Hapus"></i></a>
                     </td>
                   </tr>
                 <?php
