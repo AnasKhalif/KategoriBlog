@@ -85,7 +85,7 @@ if (isset($_GET['data'])) {
                 </tr>
                 <tr>
                   <td width="20%"><strong>Username<strong></td>
-                  <td width="80%"><?php echo $level; ?></td>
+                  <td width="80%"><?php echo $username; ?></td>
                 </tr>
               </tbody>
             </table>
